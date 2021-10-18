@@ -1,0 +1,17 @@
+.form-control:focus {
+    box-shadow: none;
+    border-color: #80A45F
+}
+
+.buttons button {
+    border: 1px solid #b7c880 !important;
+    color: #80A45F;
+    height: 40px
+}
+
+.buttons button:hover {
+    border: 1px solid #b7c880 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #80A45F
+}

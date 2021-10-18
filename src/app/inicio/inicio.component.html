@@ -1,0 +1,734 @@
+<div class="container-fluid bg-fundo b-0 m-0 p-0">
+
+    <!--MENU-->
+    <nav class="navbar navbar-expand-lg navbar-light pt-4" id="inicio">
+
+        <!-- botão responsável por deixar os ícones do menu responsivos -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+            aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Icon marca -->
+        <a class="navbar-brand mg-icon" href="#proposito" id="entrar">
+            <img src="assets/img/favicon-white.png" alt="Freegunity" class="img-fluid icon-animation">
+        </a>
+
+        <div class="collapse navbar-collapse justify-content-end " id="conteudoNavbarSuportado">
+            <!-- botão Entre -->
+            <button id="btnLogin" type="button" class="btn btnMenu btn-animation" data-toggle="modal"
+                data-target="#modalEntrar">
+                Entre
+            </button>
+            <!-- botão Cadastre-se -->
+            <button type="button" class="btn border-light btnMenu shadow-sm btn-animation" data-toggle="modal"
+                data-target="#modalCadastrar">
+                Cadastre-se
+            </button>
+        </div>
+
+    </nav>
+    <!--/MENU-->
+
+    <!-- MODAIS -->
+
+    <!-- Entrar -->
+    <div class="modal fade" id="modalEntrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content formato">
+                <div class="modal-header d-flex justify-content-center">
+                    <img src="../../assets/img/favicon.png" width="30px" height="30px">
+                    <h3 class="modal-title ml-auto fs-title text-secondary" id="exampleModalLabel">Seja bem-vinde!</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="mt-2" action="" method="post" name="login">
+                        <div class="form-group">
+                            <input [(ngModel)]='userLogin.username' type="text" name="username" class="form-control"
+                                id="username" required #loginUsername="ngModel" placeholder="Usuário">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="loginUsername.invalid && (loginUsername.dirty || loginUsername.touched)"
+                                class="alert">
+                                <small class="text-danger" *ngIf="loginUsername.errors?.required">
+                                    O campo "Usuário" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
+                        </div>
+                        <div class="form-group">
+                            <input [(ngModel)]='userLogin.senha' type="password" name="loginSenha" id="loginSenha"
+                                class="form-control" required #loginSenha="ngModel" placeholder="Senha">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="loginSenha.invalid && (loginSenha.dirty || loginSenha.touched)" class="alert">
+                                <small class="text-danger" *ngIf="loginSenha.errors?.required">
+                                    O campo "Senha" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-auto">
+                                <a data-toggle="modal" data-dismiss="modal" data-target="#modalCadastrar"
+                                    class="text-center cc">
+                                    Criar conta
+                                </a>
+                            </div>
+                            <div class="col-md-4 ml-auto">
+                                <button (click)='entrar()' type="submit" class="btn btn-primary" id="btn-entrar"
+                                    data-dismiss="modal">Entrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Entrar -->
+
+    <!-- Cadastrar -->
+    <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content formato">
+                <div class="modal-header">
+                    <img src="../../assets/img/favicon.png" width="30px" height="30px">
+                    <h3 class="modal-title ml-auto fs-title text-secondary" id="exampleModalLabel">Inscreva-se</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form class="mt-2" action="" method="post" name="login">
+                        <div class="form-group">
+                            <input [(ngModel)]='user.nome' type="text" name="cadSenha" id="cadSenha"
+                                class="form-control" required #nome="ngModel" placeholder="Nome completo">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert">
+                                <small class="text-danger" *ngIf="nome.errors?.required">
+                                    O campo "Nome" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input [(ngModel)]='user.username' type="text" name="cadUsername" class="form-control"
+                                    id="cadUsername" required #username="ngModel" placeholder="Usuário">
+                            </div>
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
+                                <small class="text-danger" *ngIf="username.errors?.required">
+                                    O campo "Usuário" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
+                        </div>
+                        <div class="form-group">
+                            <input [(ngModel)]='user.email' type="email" name="email" id="email" class="form-control"
+                                required #email="ngModel" placeholder="Email">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+                                <small class="text-danger" *ngIf="email.errors?.required">
+                                    Campo "Email" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
+                        </div>
+                        <div class="form-group">
+                            <input [(ngModel)]='user.senha' (input)='tipoUser($event)' type="password" name="senha"
+                                id="senha" class="form-control" required #senha="ngModel" placeholder="Senha">
+                            <!-- Alerta de preenchimento do formulario -->
+                            <div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="alert">
+                                <small class="text-danger" *ngIf="senha.errors?.required">
+                                    O campo "Senha" é obrigatório.
+                                </small>
+                            </div>
+                            <!-- /Alerta de preenchimento do formulario -->
+                        </div>
+                        <div class="form-group">
+                            <input (input)='confirmaSenha($event)' type="password" name="ConfSenha" id="ConfSenha"
+                                class="form-control" placeholder="Confirmar senha">
+                        </div>
+                    </form>
+                </div>
+                <div class="d-none">
+                    <input [(ngModel)]='user.foto' type="password" name="foto" id="foto" class="form-control"
+                        placeholder="Confirmar senha">
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-auto ml-auto">
+                                <button (click)='cadastrar()' type="submit" class="btn btn-primary" id="btn-cadastrar"
+                                    data-dismiss="modal">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /Cadastrar -->
+    <!-- /MODAIS -->
+
+    <div class="container-fluid d-flex justify-content-center p-0">
+        <div class="row d-flex justify-content-end mx-3 my-5 py-2">
+
+            <div class="col-md-6">
+                <div class="row">
+                    <!-- pergunta -->
+                    <div class="col-md-10 align-items-end">
+                        <h1 class="ft-pergunta mb-5">O que você faz quando abre a geladeira e
+                            vê que há
+                            um
+                            alimento cujo prazo de validade já expirou ou tem uma aparência ruim?</h1>
+                    </div>
+                    <!-- /pergunta -->
+                </div>
+                <div class="row">
+                    <!-- botão visitante -->
+                    <div class="mt-5">
+                        <a class="btn btnVisit btn-animation border-light shadow-sm" href="#" role="button"
+                            (click)='entrarVisitante()'>Entre
+                            como visitante</a>
+                    </div>
+                    <!-- /Botão visitante -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid p-0 m-0 bg-light">
+    <!-- SIGNIFICADO FREEGAN -->
+    <div class="row align-items-center m-0">
+        <div class="col-md-12 p-0 m-0">
+            <div class="row d-flex justify-content-center m-0 ">
+                <div class="col-md-9 my-5 d-flex justify-content-center">
+                    <hr class="barra mx-3">
+                    <h3 class="font-weight-light">Você conhece o Freeganismo?</h3>
+                    <hr class="barra mx-3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0 bg-preto d-flex justify-content-center">
+        <div class="row align-items-center">
+            <div class="col-md-auto px-5 ">
+                <div class="row align-items-center">
+                    <div class="col-md-7 d-flex justify-content-end">
+                        <p class="ft-titSig">free + (ve)ganismo</p>
+                    </div>
+
+                    <div class="col-md-5 d-flex justify-content-start">
+                        <p class="ft-subSig">(portmanteau livre vegano) Subs.</p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-auto d-flex justify-content-center">
+                        <p class="ft-txtSig">
+                            É uma forma de viver em que as pessoas não
+                            compram nada ou só compram o mínimo possível, rejeitam o consumismo e procuram
+                            preservar
+                            o
+                            meio ambiente, gerando o mínimo de lixo possível. Elas se abastecem dos
+                            alimentos que as feiras de rua e mercados descartam por não estarem bonitos
+                            para venda.</p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /SIGNIFICADO FREEGAN -->
+
+    <!-- REALIDADE -->
+    <div class="container-fluid bg-lixo mt-5 d-flex justify-content-center">
+        <div class="row align-items-center m-0">
+
+            <div class="col-md-6 p-0">
+                <div class="d-flex justify-content-end">
+                    <div class="col-md-8 p-0">
+                        <h5 class="font-weight-light txt-objetivo m-0">
+                            De acordo com o Índice de Desperdício de Alimentos 2021, em média, o Brasil
+                            desperdiça
+                            60 quilos
+                            de
+                            alimento por pessoa, anualmente.
+                            O desperdício de alimentos ocorre desde o momento da colheita até o fim da refeição,
+                            quando
+                            restos
+                            de comida são jogados no lixo.</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 p-0 d-flex justify-content-center">
+                <div class="col-md-4 p-0 ">
+                    <p class="txt-titObjetivo m-0 text-uppercase font-weight-normal">
+                        Juntos vamos mudar essa realidade!</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /REALIDADE -->
+
+    <!-- Divisória -->
+    <div class="row align-items-center m-0">
+        <div class="col-md-12 p-0">
+            <div class="row d-flex justify-content-center m-0">
+                <div class="col-md-9 my-5 d-flex justify-content-center">
+                    <hr class="barra mx-3">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /Divisória -->
+    <!-- /SIGNIFICADO FREEGAN -->
+
+    <!-- DICAS -->
+    <div class="container-fluid p-0 d-flex justify-content-center">
+        <div class="row d-flex justify-content-center align-items-center m-0 pb-5">
+            <!-- Tópico -->
+            <div class="col-md-4 font-weight-light">
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-2 d-flex justify-content-center ">
+                        <p class="ft-dicas font-weight-light">Você não precisa ser um freegan para consumir
+                            inteligentemente...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Tópico -->
+            <!-- Carrossel Dicas -->
+            <div class="col-md-6 p-0">
+                <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                    <ol class="carousel-indicators">
+
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <!-- 1º Img -->
+                        <div class="carousel-item active">
+                            <img src="../../assets/img/dica1.png" alt="Primeiro Slide" class="img-fluid sizeDicas">
+                            <div class="carousel-caption d-block d-md-block">
+                                <h5 class="text-center ">Feiras de rua, por exemplo...</h5>
+                                <p class="font-weight-normal text-center tam">São descartadas folhas de
+                                    beterraba, de couve-flor, de brócolis, e até alimentos inteiros ou
+                                    cascas e sementes - REAPROVEITE e COMPARTILHE a informação aqui, pode ser que tenha
+                                    uma pessoa pertinho de você precisando.</p>
+                            </div>
+                        </div>
+                        <!-- /1º Img -->
+                        <!-- 2º Img -->
+                        <div class="carousel-item">
+                            <img src="../../assets/img/dica2.png" alt="Segundo Slide" class="img-fluid sizeDicas">
+                            <div class="carousel-caption d-block d-md-block">
+                                <h5 class="text-center">Que tal uma hortinha ou um pomar?</h5>
+                                <p class="font-weight-normal text-center">Apoiamos o cultivo de alimentos em casa, são
+                                    diversos os ingredientes para usar como adubo. PEQUENO AGRICULTOR
+                                    que tem muito a oferecer, mas não sabe onde anunciar?
+                                    esse espaço é seu.</p>
+                            </div>
+                        </div>
+                        <!-- /2º Img -->
+                        <!-- 3º Img -->
+                        <div class="carousel-item">
+                            <img src="../../assets/img/dica3.png" alt="Terceiro Slide" class="img-fluid sizeDicas">
+                            <div class="carousel-caption d-block d-md-block">
+                                <h5 class="text-center">Doe!</h5>
+                                <p class="font-weight-normal text-center">Tem alimentos que não consumimos, mas
+                                    ficam parados na dispensa ou geladeira. A pandemia intensificou o voluntariado e
+                                    você pode fazer parte. Fique a vontade de ANUNCIAR CAMPANHAS e CRIAR COMUNIDADES.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /3º Img -->
+                        <!-- 4º Img -->
+                        <div class="carousel-item">
+                            <img src="../../assets/img/dica4.png" alt="Quarto Slide" class="img-fluid sizeDicas">
+                            <div class="carousel-caption d-block d-md-block">
+                                <h5 class="text-center ">Evite o desperdício!
+                                </h5>
+                                <p class="font-weight-normal text-center ">Muito comum após as refeições descartar o
+                                    que sobrou. Sirva o suficiente para te satisfazer e se sobrar, guarde para mais
+                                    tarde ou quem sabe uma nova receita.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /4º Img -->
+                        <!-- 5º Img -->
+                        <div class="carousel-item">
+                            <img src="../../assets/img/dica5.png" alt="Quinto Slide" class="img-fluid sizeDicas">
+                            <div class="carousel-caption d-block d-md-block">
+                                <h5 class="text-center ">Aos funcionários ou donos de restaurantes..
+                                </h5>
+                                <p class="font-weight-normal text-center ">Não joguem o que não vendeu,
+                                    DISTRIBUA! São muitos que de momento não tem como se sustentar pertinho
+                                    de vocês. PUBLIQUE aqui quando a remessa que sobrou for grande.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /5º Img -->
+                        <!-- 6º Img -->
+                        <div class="carousel-item">
+                            <img src="../../assets/img/dica6.png" alt="Sexto Slide" class="img-fluid sizeDicas">
+                            <div class="carousel-caption d-block d-md-block">
+                                <h5 class="text-center ">O mesmo vale para os supermecados e família...</h5>
+                                <p class="font-weight-normal text-center ">POR FAVOR! Existem diversos projetos que
+                                    recolhem e aceitam produtos próximos ou que já passaram da data de validade. Evite
+                                    descartes, ANUNCIE aqui.</p>
+                            </div>
+                        </div>
+                        <!-- /6º Img -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /DICAS -->
+
+<!-- SOBRE NÓS -->
+<div class="container-fluid d-flex justify-content-center  bg-light p-0" id="proposito">
+    <div class="row mt-5 m-0 d-flex justify-content-center bg-sobre">
+        <div class="col-md-12 p-0 m-0 d-flex justify-content-center">
+            <div class="row p-0 m-0 d-flex justify-content-center">
+                <div class="col-md-8 mb-5 ">
+                    <div class="text-justify ">
+                        <p class="text-center ft-titSobre pt-5">Nosso manifesto</p>
+
+                        <p class="txtSobre lead font-weight-normal">
+                            A Freegunity deseja conectar a comunidade freegan e pessoas das mais variadas etnias,
+                            classes e idades que estão
+                            cansadas do consumo inconsciente sob a quantidade imensa de alimentos que são desperdiçados
+                            todos os dias, e que se consumidas de forma correta, poderiam erradicar o impacto negativo
+                            trazido pela Covid-19 sobre a fome do mundo.
+                            O nome Freegunity surgiu da junção do estilo de vida freegan com a palavra ‘unity’(unidade),
+                            uma
+                            rede-social criada a fim de garantir o Desenvolvimento Sustentável da humanidade,
+                            colaborando
+                            com o Objeto II da Agenda 2030 da ONU no Brasil – <a
+                                href="https://brasil.un.org/pt-br/sdgs/2" target="_blank">FOME ZERO E AGRICULTURA
+                                SUSTENTÁVEL</a>.
+                            Acreditamos que o mundo se mova em função da consciência de cada um. Por isso são permitidos
+                            quaisquer conteúdos que contribuam com a causa acima.
+                            Conecte-se e faça parte dessa corrente do bem!
+                        </p>
+                    </div>
+                    <a href="#entrar" class="d-flex justify-content-center">
+                        <img src="assets/img/favicon.png" width="40px" height="40px" alt="Freegunity"
+                            class="img-fluid icon-animation">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /SOBRE NÓS -->
+
+<!--DEV TEAM SPACE -->
+<div class="container-fluid tm d-flex justify-content-center b-0 p-0 pb-5">
+    <div class="row">
+        <div class="col-md alend">
+            <div class="card media">
+                <div class="icon">
+                    <img src="../assets/img/thi.png" width="100px">
+                </div>
+                <div class="content">
+                    <h2>Thiago da Silva Machado</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+                        cupiditate quis magnam
+                        cum,
+                        officiis nostrum eaque fugit hic asperiores perspiciatis
+                        consequuntur dolore error,
+                        voluptates
+                        inventore?.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md alend">
+            <div class="card media">
+                <div class="icon"><img src="../assets/img/jp.png" width="100px"></div>
+                <div class="content">
+                    <h2>João Pedro da Cruz Gomes</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+                        cupiditate quis magnam
+                        cum,
+                        officiis nostrum eaque fugit hic asperiores perspiciatis
+                        consequuntur dolore error,
+                        voluptates
+                        inventore?.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md alend">
+            <div class="card media">
+                <div class="icon"><img src="../assets/img/aninha.png" width="100px">
+                </div>
+                <div class="content">
+                    <h2>Ana Beatriz Yujra Espejo</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+                        cupiditate quis magnam
+                        cum,
+                        officiis nostrum eaque fugit hic asperiores perspiciatis
+                        consequuntur dolore error,
+                        voluptates
+                        inventore?.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-between">
+        <div class="col-md alend">
+            <div class="card media mr-5">
+                <div class="icon"><img src="../assets/img/pam.png" width="100px"></div>
+                <div class="content">
+                    <h2>Pamela Paulino</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+                        cupiditate quis magnam
+                        cum,
+                        officiis nostrum eaque fugit hic asperiores perspiciatis
+                        consequuntur dolore error,
+                        voluptates
+                        inventore?.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md alend">
+            <div class="card media">
+                <div class="icon"><img src="../assets/img/maic.png" width="100px"></div>
+                <div class="content">
+                    <h2>Maicon Gomes Cerqueira</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+                        cupiditate quis magnam
+                        cum,
+                        officiis nostrum eaque fugit hic asperiores perspiciatis
+                        consequuntur dolore error,
+                        voluptates
+                        inventore?.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/DEV TEAM SPACE-->
+
+<!-- COMENTÁRIOS USUÁRIOS -->
+<!-- Divisória -->
+<div class="row d-flex justify-content-center m-0 ">
+    <div class="col-md-9 my-5 d-flex justify-content-center">
+        <hr class="barra mx-3">
+        <h3 class="font-weight-light">Faça parte da mudança</h3>
+        <hr class="barra mx-3">
+    </div>
+</div>
+<!-- /Divisória -->
+
+<!-- Cards Carrossel-->
+<div class="container-fluid d-flex justify-content-center">
+    <div class="row d-flex justify-content-center px-0 mx-0">
+        <!-- Carrossel -->
+        <div id="carouselExampleControls" class="carousel slide pb-5 px-0" data-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Primeiro carrossel -->
+                <div class="carousel-item active">
+                    <div class="row d-flex justify-content-center">
+                        <!-- 1º card -->
+                        <div class="col-md-3 d-flex justify-content-center">
+                            <div class="cardUser">
+                                <div class="d-flex justify-content-center">
+                                    <img class="rounded-circle" src="../../assets/img/pessoa1.png"
+                                        alt="Imagem de capa do card" class="img-fluid img-User">
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="card-title text-center font-weight-normal">Mônica</p>
+                                    <p class="card-text text-center mx-5 font-italic">"Em Nova York, o
+                                        freeganismo se estendeu muito além do mergulho no lixo."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /1º card -->
+                        <!-- 2º card -->
+                        <div class="col-md-3 d-flex justify-content-center">
+                            <div class="cardUser">
+                                <div class="d-flex justify-content-center">
+                                    <img class="rounded-circle" src="../../assets/img/pessoa2.png"
+                                        alt="Imagem de capa do card" class="img-fluid img-User">
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="card-title text-center font-weight-normal">Isabel</p>
+                                    <p class="card-text text-center mx-5 font-italic">"Comece pequeno
+                                        e em casa - evite sobras após as refeições, peça que sua família participe."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /2º card -->
+                        <!-- 3º card -->
+                        <div class="col-md-3 d-flex justify-content-center">
+                            <div class="cardUser">
+                                <div class="d-flex justify-content-center">
+                                    <img class="rounded-circle" src="../../assets/img/pessoa3.png"
+                                        alt="Imagem de capa do card" class="img-fluid img-User">
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="card-title text-center font-weight-normal">Magali</p>
+                                    <p class="card-text text-center mx-5 font-italic">"Eu já tinha me
+                                        envolvido com o freeganismo, pegando um pouco de chá e algumas panelas na
+                                        lixeira do porão do meu prédio."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /3º card -->
+                    </div>
+                </div>
+                <!-- /Primeiro carrossel -->
+
+                <!-- Segundo carrossel -->
+                <div class="carousel-item">
+                    <div class="row d-flex justify-content-center">
+
+                        <!-- 4º card -->
+                        <div class="col-md-3 d-flex justify-content-center">
+                            <div class="cardUser">
+                                <div class="d-flex justify-content-center">
+                                    <img class="rounded-circle" src="../../assets/img/pessoa4.png"
+                                        alt="Imagem de capa do card" class="img-fluid img-User">
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="card-title text-center font-weight-normal">Carlos</p>
+                                    <p class="card-text text-center mx-5 font-italic">"O freeganismo é
+                                        uma filosofia de vida, baseada na participação mínima no capitalismo e no
+                                        consumo limitado de recursos."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /4º card -->
+                        <!-- 5º card -->
+                        <div class="col-md-3">
+                            <div class="cardUser">
+                                <div class="d-flex justify-content-center">
+                                    <img class="rounded-circle " src="../../assets/img/pessoa5.png"
+                                        alt="Imagem de capa do card" class="img-fluid img-User">
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="card-title text-center font-weight-normal">Kiara</p>
+                                    <p class="card-text text-center mx-5 font-italic">"Grande parte da
+                                        comida jogada fora é por falhas nas embalagens ou porque o produto excedeu a
+                                        data de validade."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /5º card -->
+                        <!-- 6º card -->
+                        <div class="col-md-3 d-flex justify-content-center ">
+                            <div class="cardUser">
+                                <div class="d-flex justify-content-center">
+                                    <img class="rounded-circle" src="../../assets/img/pessoa6.png"
+                                        alt="Imagem de capa do card" class="img-fluid img-User">
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="card-title text-center font-weight-normal">Renata</p>
+                                    <p class="card-text text-center mx-5 font-italic">"Esse alimento
+                                        que vai para a lixeira poderia ser encaminhado para quem mais necessita."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /6º card -->
+                    </div>
+                </div>
+                <!-- /Segundo carrossel -->
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <i class="fas fa-angle-left"></i>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <i class="fas fa-angle-right"></i>
+                <span class="sr-only">Próximo</span>
+            </a>
+        </div>
+        <!-- /Carrossel -->
+    </div>
+    <!-- Cards Carrossel-->
+</div>
+<!-- /COMENTÁRIOS USUÁRIOS -->
+
+<!--Footer-->
+<div class="container-fluid ft">
+    <footer class="footer">
+        <div class="row d-flex justify-content-center">
+            <div class="footer-col ml">
+                <h4>Sobre FreegUnity</h4>
+                <p class="justify">Temos como propósito "diminuir" o desperdício de alimentos por meio
+                    da disseminação do
+                    consumo consciente reunindo a comunidade freegan e deixando o convite aos não freegans.</p>
+            </div>
+
+            <div class="footer-col ">
+                <h4>Geral</h4>
+                <ul class="p-0 align-items-center">
+                    <li><a href="#proposito">Propósito</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                    <li><a href="#">Termos & Condições</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <ul class="p-0 align-items-center">
+                    <li><a href="https://web.whatsapp.com/" target="_blank"><i class="fab fa-whatsapp"></i>
+                            WhatsApp</a>
+                    </li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i>
+                            Instagram</a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i>
+                            Facebook</a></li>
+                    <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i>
+                            Youtube</a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i>
+                            LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col d-flex justify-content-center">
+                <a href="#entrar">
+                    <img src="assets/img/arrow-up.png" class="seta img-fluid">
+                    <!-- <i class="far fa-arrow-alt-circle-up"></i> -->
+                </a>
+            </div>
+
+        </div>
+    </footer>
+</div>

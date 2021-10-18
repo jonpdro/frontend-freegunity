@@ -1,0 +1,71 @@
+.bg {
+    background: #b7c880;
+    background: linear-gradient(90deg, rgba(183, 200, 128, 1) 0%, rgba(128, 164, 95, 1) 55%, rgba(90, 129, 87, 1) 100%);
+}
+
+.form-control {
+    padding-left: 2.375rem;
+    border-radius: 4.25rem;
+    width: 17em;
+    transition: 600ms;
+}
+
+.form-control-group {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.icon div button, .icon li button {
+    font-size: 28px;
+    padding: 0px;
+    margin: 0px;
+    color: white;
+}
+
+.icon div button, .icon li {
+    padding-left: 20px;
+    color: white;
+    transition: 250ms;
+}
+
+.icon div button:hover, .icon li:hover {
+    transform: scale(1.11);
+}
+
+.btn {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0) !important;
+    border-bottom: 0px;
+    border: none !important;
+}
+
+.form-control {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0) !important;
+    border-bottom: 0px;
+    border: none !important;
+}
+
+.form-control:hover {
+    width: 24em;
+    transform: scaleX(1);
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+}
+
+.dropdown-toggle {
+    outline: none;
+}

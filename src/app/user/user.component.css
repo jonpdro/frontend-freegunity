@@ -1,0 +1,142 @@
+.card {
+    background-color: #fff;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #b7c880;
+    transform: scaleY(1);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+
+.card:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #80A45F;
+    transform: scaleY(0);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+
+.card:hover::after {
+    transform: scaleY(1)
+}
+
+.fonts {
+    font-size: 11px
+}
+
+.buttons button {
+    border: 1px solid #b7c880 !important;
+    color: #80A45F;
+    height: 40px
+}
+
+.buttons button:hover {
+    border: 1px solid #b7c880 !important;
+    color: #fff;
+    height: 40px;
+    background-color: #80A45F
+}
+
+.bg-adm {
+    background-color: #80A45F;
+}
+
+.btn {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0) !important;
+    border-bottom: 0px;
+    border: none !important;
+}
+
+/* POSTAGENS */
+
+.posts {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.newPost {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    margin: 50px 0;
+    padding: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.infoUserPost {
+    display: flex;
+    align-items: center;
+}
+
+.userAll {
+    margin-left: 8px;
+}
+
+.postagemGhost {
+    width: 100%;
+    margin: 20px 0;
+    color: #727272;
+    padding: 30px;
+}
+
+.imgPost[src=""] {
+    display: none;
+}
+
+.actionBtnPost {
+    display: flex;
+    transition: background 0.2s;
+}
+
+.imgUserPost {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.horaPostada {
+    color: #D1D1D1;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.row {
+    background-color: #eef1f7;
+}
+
+.barra {
+    display: block;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 1px;
+    opacity: .1;
+    background-color: currentColor;
+    margin-top: 1.5%;
+    max-width: 300px;
+    display: -ms-flexbox;
+}

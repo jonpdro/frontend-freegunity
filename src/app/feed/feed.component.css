@@ -1,0 +1,415 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 11px
+    /*melhorar a qualidade das fontes*/
+}
+
+.row {
+    background-color: #eef1f7;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-tema {
+    width: 90px;
+    /* height: auto; */
+}
+
+.fa {
+    font-size: 17pt;
+}
+
+.fa-sign-out::before {
+    color: black;
+}
+
+.imagemLogo {
+    align-items: center;
+    justify-content: center;
+    margin-left: 720px;
+}
+
+.card-link {
+    color: black;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+div.newPost {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    margin: 50px 0;
+    padding: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.infoUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgUser {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.cardUser {
+    margin-top: 50px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+h5 {
+    text-align-last: center;
+    margin-top: 10px;
+}
+
+h6 {
+    font-weight: bold;
+}
+
+.sobreMim {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.fa-sign-out {
+    color: black;
+}
+
+.imagemUsuario {
+    width: 100px;
+    margin-left: 90px;
+    margin-top: 20px;
+    border-radius: 60px;
+}
+
+.card-subtitle {
+    margin-left: 100px;
+    margin-top: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-body {
+    border-radius: 30px;
+}
+
+strong {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.formPost {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    background: #FBFBFB;
+    margin: 15px 0;
+    height: 90px;
+    padding: 25px;
+    border-radius: 10px;
+    resize: none;
+    border: 0;
+    outline: none;
+    font-size: 17px;
+    color: #727272;
+}
+
+.iconsAndButton {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.btnSubmitForm {
+    border: 1px solid #b7c880 !important;
+    color: #fff;
+    background-color: #80A45F;
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 110px;
+    height: 40px;
+}
+
+.icons {
+    width: 100px;
+    display: flex;
+    align-items: center;
+}
+
+div.posts {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoUserPost {
+    display: flex;
+    align-items: center;
+}
+
+.imgUserPost {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.userAll {
+    margin-left: 5px;
+}
+
+.usuario {
+    color: #23A0FF;
+    margin-left: 5px;
+}
+
+.horaPostada {
+    color: #D1D1D1;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.postagemGhost {
+    width: 100%;
+    margin: 20px 0;
+    color: #727272;
+    
+}
+
+.actionBtnPost {
+    display: flex;
+    transition: background 0.2s;
+}
+
+.filesPost {
+    padding: 4px;
+}
+
+.curtir {
+    margin-right: 20px;
+    border-radius: 10px;
+    background: #fd4a4a;
+    font-size: 16px;
+}
+
+.curtir:hover {
+    background: hsl(0, 100%, 55%);
+}
+
+.comentar {
+    margin-right: 20px;
+    border-radius: 10px;
+    background: #ffc72d;
+}
+
+.comentar:hover {
+    background: #ffbb00;
+}
+
+.compartilhar {
+    margin-right: 0 20px 0 0;
+    border-radius: 10px;
+    background: #35a7ff;
+}
+
+.compartilhar:hover {
+    background: #008df8;
+}
+
+.fa-heart:before {
+    color: #fff;
+    margin-right: 7px;
+}
+
+.fa-comments::before {
+    color: #fff;
+    margin-right: 7px;
+}
+
+.fa-share-alt-square {
+    color: #fff;
+    margin-right: 7px;
+}
+
+strong {
+    color: #fff;
+    margin-left: 0;
+}
+
+hr {
+    margin: 10px;
+}
+
+/* "Método" integrado ao CSS para que não exiba a tag <img> se o 'src' estiver vazio, nas postagens apenas */
+
+.imgPost[src=""] {
+    display: none;
+}
+.postagemGhost[src=""]{
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+/*responsividade feed*/
+
+@media screen and (max-width:480){
+    .container-fluid
+    {
+        background: 100%;
+        
+
+    }
+    .newPost,.cardUser
+    {
+        margin-left:5rem;
+        margin-right: 5rem;
+        align-items: center;
+    }
+    .iconsAndButton
+    {
+        padding: 30px;
+        margin: 0;
+        width: 100%;
+    }
+    .actionBtnPost
+    {
+        width: 100%;
+    }
+    .cardUser
+    {
+        display: none;
+    }
+    
+    
+   
+}
+
+@media screen and (min-width:481px) and (max-width:768px) {
+    .container-fluid
+    {
+        background: 100%;
+    }
+    .postagemGhost
+    {
+        padding: 20px;
+    }
+    .imgPost
+    {
+        display: none;
+    }
+    .newPost,.cardUser
+    {
+        display: flex;
+        
+    }
+    .cardUser
+    {
+       
+       margin-left:100px;
+    }
+    .actionBtnPost
+    {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width:992px) {
+    .container-fluid, .newPost,.cardUser
+    {
+        width: 100%;
+        background: 100%;
+        align-items: flex-end;
+        
+    }
+    .postagemGhost
+    {
+        padding: 30px;
+    }
+    .imgPost
+    {
+        display: none;
+    }
+    .newPost,.cardUser
+    {
+        margin-left:5px;
+        margin-right: 5px;
+        align-items: center;
+    }
+    .cardUser
+    {
+        margin-right: 7rem;
+    }
+    .actionBtnPost
+    {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+   
+}
+
+@media screen and (min-width:993px) {
+    .postagemGhost
+    {
+        padding: 30px;
+    }
+    .imgPost
+    {
+        display: none;
+    }
+    .iconsAndButton
+    {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    .cardUser
+    {
+        margin-right: 70px;
+    }
+   
+
+}
+
+@media screen and (min-width:1200) and (max-width:1280px) {
+  
+   
+    
+}
+
+@media screen and (min-width:1201) and (max-width:1600px) {
+    
+    
+}
+
+@media screen and (min-width:1601px) and (max-width:1900px) {
+  
+    
+}

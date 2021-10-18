@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg bg">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <form class="form-inline">
+            <div class="form-group search">
+                <span class="fa fa-search form-control-group"></span>
+                <input type="text" class="form-control" placeholder="Pesquisar">
+            </div>
+        </form>
+
+        <a routerLink='/feed' class="navbar-brand d-flex justify-content-center">
+            <img src="assets/img/favicon-white.png" class="logo" title="Freegunity" alt="Logo">
+        </a>
+
+        <ul class="navbar-nav ml-auto icon">
+            <div class="dropdown" *ngIf='authService.adm()'>
+                <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <!-- Dropdown menu links -->
+                    <a class="dropdown-item" routerLink='/tema'>Temas</a>
+                    <a class="dropdown-item" [routerLink]="['/user-edit', idUser]">Alterar usuário</a>
+                </div>
+            </div>
+
+            <!-- <li class="nav-item active">
+                <button *ngIf='authService.visitante()' class="btn">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                </button>
+            </li> -->
+            <li class="nav-item">
+                <a [routerLink]="['/inbox', idUser]">
+                    <button *ngIf='authService.visitante()' class="btn">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/user', idUser]">
+                    <button *ngIf='authService.visitante()' class="btn">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <button (click)='sair()' class="btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>

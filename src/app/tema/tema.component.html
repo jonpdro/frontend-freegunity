@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <div class="row">
+    <!--
+    <a routerLink='/inicio' class="text-left">
+      <i class="fa fa-angle-double-left" aria-hidden="true"></i>início
+    </a>-->
+    <section class="get_in_touch">
+      <img src="assets/img/favicon.png" id="logo-tema" alt="Logo" title="Logo" width="45px" height="45px">
+      <h1 class="title">Temas</h1>
+      <div class="container">
+        <div class="contact-form row">
+          <div class="form-field col-lg-12 d-flex justify-content-center">
+            <input [(ngModel)]='tema.titulo' id="message" class="input-text" type="text" name="">
+            <label for="message" class="label">Digite o título do tema</label>
+          </div>
+
+          <!-- <div class="form-field col-lg-12">
+          <input class="submit-btn" type="submit" value="Cadastrar"  name="">
+        </div>-->
+
+          <div class="buttons mt-3">
+            <button class="btn btn-cadastrar ml-3" (click)='cadastrar()'>Cadastrar</button>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <h2 class="title text-center text-secondary">Lista dos Temas</h2>
+          </div>
+        </div>
+
+        <div class="row mt-3 mb-5 d-flex justify-content-center">
+          <div class="col-md-12">
+            <table class="table table-hover">
+              <thead class="bg">
+                <tr>
+                  <th scope="col" class="text-secondary">#</th>
+                  <th scope="col" class="text-secondary">Títulos</th>
+                  <th scope="col" class="text-secondary text-right">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let tema of listaTemas'>
+                  <th>{{tema.id}}</th>
+                  <td>{{tema.titulo}}</td>
+                  <td class="d-flex justify-content-end">
+                    <button class="btn btn-editar mr-3" id="btn-editar" data-toggle="modal"
+                      data-target="#ExemploModalCentralizado1">Editar</button>
+                    <button class="btn btn-apagar" data-toggle="modal"
+                      data-target="#ExemploModalCentralizado2">Apagar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Editar-->
+      <div class="modal fade" id="ExemploModalCentralizado1" tabindex="-1" role="dialog"
+        aria-labelledby="TituloModalCentralizado1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="TituloModalCentralizado1">Editar Tema</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!--<h1 class="text-center text-secondary">Atualizar Tema</h1>-->
+              <div class="form-group">
+                <label for="descricao">Atualização</label>
+                <input type="text" class="form-control" id="descricao" [(ngModel)]= 'tema.titulo'>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancelar" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-editar">Salvar mudanças</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Apagar-->
+      <div class="modal fade" id="ExemploModalCentralizado2" tabindex="-1" role="dialog"
+        aria-labelledby="TituloModalCentralizado2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="TituloModalCentralizado2">Apagar Tema</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Deseja realmente apagar esse tema?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancelar" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-editar">Apagar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>

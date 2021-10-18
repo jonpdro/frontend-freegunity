@@ -1,0 +1,74 @@
+.get_in_touch
+{
+    max-width: 800px;
+    margin: 50px auto;
+    position: relative;
+    box-shadow: 0 10px 30px 0px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+.title
+{
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 3em;
+    line-height: 48px;
+    padding-bottom: 20px;
+    color: #5543ca;
+    background:linear-gradient(to right, #24ff72 0%, #9a4eff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+.form-field
+{
+    position: relative;
+    margin: 32px 0;
+}
+.input-text
+{
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    border-color: #5543ca;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label
+{
+    transform: translateY(-24px);
+}
+.input-text:focus
+{
+    outline: none;
+}
+.label
+{
+    position: absolute;
+    left: 20px;
+    bottom: 11px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #5543ca;
+    cursor: text;
+    
+    transition: transform 0.2s ease-in-out;
+}
+.submit-btn
+{
+    display: inline-block;
+    background-image: linear-gradient(125deg, #24ff72,#9a4eff);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: none;
+    width: 200px;
+    cursor: pointer;
+
+}

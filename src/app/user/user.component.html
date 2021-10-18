@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center pt-5">
+        <div class="col-md-7">
+            <div class="card p-3 py-4">
+                <div class="text-center"> <img src="{{ icon() }}" width="100" class="rounded-circle">
+                </div>
+                <div class="text-center mt-3">
+                    <span *ngIf='authService.adm()' class="bg-adm p-1 px-4 rounded text-white">ADM</span>
+                    <h5 class="mt-3 mb-0">{{ user.nome }}</h5> <span class="fs-11">@{{ user.username }}</span><br>
+                    <div *ngIf='authService.visitante()' class="">
+                        <p class="fonts">
+                            {{ user.email }}
+                        </p>
+                    </div>
+                    <div class="buttons mt-3">
+                        <button *ngIf='authService.outroPerfil()'  [routerLink]="['/user-edit', editUser]"
+                            class="btn btn-outline mr-1">Editar
+                            Perfil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="posts" *ngFor='let item of user.postagem | orderBy : key : reverse'>
+                <div class="post">
+                    <div class="newPost d-flex justify-content-start">
+                        <div class="infoUserPost">
+                            <img src="{{ user.foto }}" class="imgUserPost" alt="Foto do usuário da postagem">
+                            <div class="nomeAndHour pt-2">
+                                <strong class="userAll text-muted">
+                                    {{ user.nome }} | {{ item.tema.titulo }}
+                                </strong>
+                                <p class="horaPostada">
+                                    {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                                </p>
+                            </div>
+                        </div>
+                        <p class="postagemGhost">
+                            {{ item.texto }}
+                        </p>
+                        <!-- <img class="imgPost" src="{{ item.imagem }}" width="50px" alt="Imagem da Postagem"> -->
+                        <!-- <div class="actionBtnPost" *ngIf='authService.visitante()'>
+                            <button type="button" class="btn filesPost curtir"><i class="fa fa-heart sz"
+                                    aria-hidden="true"></i><strong>Curtir</strong></button>
+                            <button type="button" class="btn filesPost comentar"><i class="fa fa-comments sz"
+                                    aria-hidden="true"></i><strong>Comentar</strong></button>
+                            <button type="button" class="btn filesPost compartilhar"><i
+                                    class="fa fa-share-alt-square sz"
+                                    aria-hidden="true"></i><strong>Compartilhar</strong></button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
