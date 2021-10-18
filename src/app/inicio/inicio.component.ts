@@ -69,7 +69,7 @@ export class InicioComponent implements OnInit {
 
       environment.id = this.userLogin.id = 4
       environment.nome = this.userLogin.nome = 'Visitante'
-      environment.username = this.userLogin.username = 'visitante'
+      environment.username = this.userLogin.username= 'visitante'
       environment.foto = this.userLogin.foto = ''
       environment.token = this.userLogin.token
       environment.email = this.userLogin.email = 'visitante@email.com'
@@ -78,10 +78,6 @@ export class InicioComponent implements OnInit {
       this.userLogin = resp
 
       this.router.navigate(['/feed'])
-    }, erro => {
-      if (erro.status == 500) {
-        this.alert.showAlertDanger('Erro no servidor.')
-      }
     })
   }
 

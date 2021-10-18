@@ -45,6 +45,7 @@ export class FeedComponent implements OnInit {
       this.router.navigate(['/inicio'])
     }
 
+    this.findByIdTema()
     this.getAllPostagens()
     this.getAllTemas()
     this.findByIdUser(this.idUser)
