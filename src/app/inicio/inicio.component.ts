@@ -65,19 +65,25 @@ export class InicioComponent implements OnInit {
   }
 
   entrarVisitante() {
+    this.userLogin.username = 'visitante'
+    this.userLogin.senha = 'visitante123'
+
     this.authService.entrar(this.userLogin).subscribe((resp: UserLogin) => {
-
-      environment.id = this.userLogin.id = 4
-      environment.nome = this.userLogin.nome = 'Visitante'
-      environment.username = this.userLogin.username= 'visitante'
-      environment.foto = this.userLogin.foto = ''
-      environment.token = this.userLogin.token
-      environment.email = this.userLogin.email = 'visitante@email.com'
-      environment.admin = this.userLogin.admin = 'guest'
-
       this.userLogin = resp
 
+      environment.id = this.userLogin.id
+      environment.nome = this.userLogin.nome
+      environment.username = this.userLogin.username
+      environment.foto = this.userLogin.foto
+      environment.token = this.userLogin.token
+      environment.email = this.userLogin.email
+      environment.admin = this.userLogin.admin
+
       this.router.navigate(['/feed'])
+    }, erro => {
+      if (erro.status == 500) {
+        this.alert.showAlertWarning('Erro!')
+      }
     })
   }
 
@@ -100,6 +106,7 @@ export class InicioComponent implements OnInit {
     if (this.user.senha != this.confirmarSenha) {
       this.alert.showAlertDanger('As senhas estão incorretas!')
     } else {
+      this.user.foto = 'https://i.imgur.com/DrenT2j.png'
       this.authService.cadastrar(this.user).subscribe((resp: User) => {
         this.user = resp
         this.router.navigate(['/inicio'])

@@ -2,12 +2,12 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5 mb-2" width="150px" src="{{ icon() }}" alt="Foto de perfil do usuário"
-                    title="Foto de perfil">
+                <img class="rounded-circle mt-5 mb-2" width="150px" height="150px" src="{{ user.foto }}"
+                    alt="Foto de perfil do usuário" title="Foto de perfil">
                 <span class="font-weight-bold">{{ user.nome }}</span>
                 <span class="text-muted">@{{ user.username }}</span>
-                <span class="text-black-50">{{ user.email }}</span>
-                <span></span>
+                <span class="text-black-50 font-italic">{{ user.email }}</span>
+                <span class="text-black-10 text-justify pt-3">{{ user.sobre }}</span>
             </div>
         </div>
         <div class="col-md-5">
@@ -24,22 +24,16 @@
                 <div class="row mt-3">
                     <div class="col-md-10">
                         <small class="text-muted">Usuário</small>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input [(ngModel)]='user.username' type="text" class="form-control"
-                                placeholder="Seu usuário">
-                        </div>
+                        <input [(ngModel)]='user.username' type="text" class="form-control" placeholder="Seu usuário">
                     </div>
                     <div class="col-md-12 mt-3">
                         <small class="text-muted">Sobre mim</small>
-                        <input id="pic" [(ngModel)]='user.sobre' type="text" class="form-control"
+                        <input  [(ngModel)]='user.sobre' type="text" class="form-control"
                             placeholder="Escreva um pouco sobre você">
                     </div>
                     <div class="col-md-12 mt-3">
                         <small class="text-muted">Foto URL</small>
-                        <input id="pic" [(ngModel)]='user.foto' type="text" class="form-control"
+                        <input [(ngModel)]='user.foto' type="text" class="form-control"
                             placeholder="Insira aqui a URL da sua foto de perfil">
                     </div>
                     <div class="col-md-12 mt-3">

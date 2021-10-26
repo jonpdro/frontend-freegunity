@@ -4,8 +4,6 @@ import { TemaComponent } from './tema/tema.component';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
-import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
-import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { FeedComponent } from './feed/feed.component';
@@ -36,9 +34,6 @@ import { OrderModule } from 'ngx-order-pipe';
     RodapeComponent,
     MenuComponent,
 
-    PostagemDeleteComponent,
-    PostagemEditComponent,
-
     TemaComponent,
     TemaDeleteComponent,
     TemaEditComponent,
@@ -56,8 +51,8 @@ import { OrderModule } from 'ngx-order-pipe';
     ModalModule.forRoot(),
     OrderModule
   ],
-  
-   // Auxilia as rotas e na rolagem automatica da pag
+
+  // Auxilia as rotas e na rolagem automatica da pag
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy

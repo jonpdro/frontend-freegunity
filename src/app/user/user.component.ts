@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
   user: User = new User()
   idUser: number
   editUser = environment.id
+  adm = environment.admin
 
   key: 'data'
   reverse: true
@@ -22,8 +23,7 @@ export class UserComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
-    private router: Router,
-    private alert: AlertasService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,21 +31,9 @@ export class UserComponent implements OnInit {
       this.router.navigate(['/inicio'])
     }
 
-    this.authService.visitanteRota()
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUser(this.idUser)
-  }
-
-  icon() {
-    let pic: string = 'assets/img/user-default.jpg'
-
-    if (this.user.foto == '') {
-      environment.foto = pic
-    } else {
-      environment.foto = this.user.foto
-    }
-
-    return environment.foto
+    this.authService.visitanteRota()
   }
 
   findByIdUser(id: number) {

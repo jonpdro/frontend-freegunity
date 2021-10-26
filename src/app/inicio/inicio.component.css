@@ -138,91 +138,85 @@
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    height: 1px;
-    opacity: .1;
+    height: 0.5px;
     background-color: currentColor;
-    margin-top: 1.5%;
-    max-width: 300px;
+     margin: auto;
+    max-width: 400px;
     display: -ms-flexbox;
-}
-
-.bg-preto {
-    background-image: url(src/assets/img/fundoEscuro1.png);
-    min-height: 300px;
-    margin: auto;
-    max-width: 1000px;
-    padding: 0%;
-    width: 90%;
+    background: linear-gradient(90deg, rgba(183, 200, 128, 1) 0%, rgba(128, 164, 95, 1) 55%, rgba(90, 129, 87, 1) 100%);
+    opacity: .3;
 }
 
 .ft-titSig {
     width: 90%;
     font-size: 40px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
     letter-spacing: 2px;
     flex-wrap: wrap;
-    padding: 0%;
+
     display: flex;
 }
 
 .ft-subSig {
     width: 90%;
     font-size: 16px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white;
+    font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
     flex-wrap: wrap;
     padding: 0%;
-    display: flex;
-    text-align: none;
+    display: flex; 
+    margin: auto;
+    padding-top: 6%;
 }
 
 .ft-txtSig {
     width: 90%;
     font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white;
+    font-family: Arial, Helvetica, sans-serif ;
     letter-spacing: 2px;
     flex-wrap: wrap;
     padding: 0%;
     display: flex;
-    margin: 0%;
-    text-align: justify;
-}
-
-.ft-dicas {
-    font-size: 50px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    flex-wrap: wrap;
-    text-align: end;
-    display: flex;
-    letter-spacing: 0px;
-}
-
-.bg-sobre {
-    margin: auto;
-    background-color: #d1cdc7;
     padding: 0%;
-    max-width: 2000px
+    text-align: justify;
+    margin: auto;
+    max-width: 2000px;
 }
 
 .bg-lixo {
-    background-image: url(src/assets/img/fosco.png);
+    background-image: url(src/assets/img/lixo.png);
+    background-attachment: fixed;
+    width: 100%;
+    height: 300px;
     min-height: 400px;
     padding: 0;
     max-width: 2000px;
 }
 
+.carousel-indicators li{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 10px;    
+}
+
 .txt-titObjetivo {
+    width: 90%;
     font-size: 50px;
     letter-spacing: -1px;
     font-weight: bold;
     line-height: 1.25;
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(71, 69, 69);
 }
 
 .txt-objetivo {
+    width: 90%;
     font-size: 25px;
     letter-spacing: 1px;
     font-family: Arial, Helvetica, sans-serif;
@@ -230,9 +224,17 @@
     text-align: justify;
 }
 
+.bg-sobre {
+    margin: auto;
+    background-color: #d1cdc78a;
+    padding: 0%;
+}
+
 .ft-titSobre {
+    width: 90%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
+    margin: auto;
 }
 
 .ft-txtSobre {
@@ -241,29 +243,6 @@
     text-align: justify;
     color: rgb(100, 97, 97);
     max-width: 2000px;
-}
-
-.sizeDicas {
-    max-width: 750px;
-    max-height: 480px;
-    height: auto;
-    padding-left: 5px;
-}
-.tam{
-    font-size: 20px;
-}
-
-.img-User {
-    max-width: 150px;
-    max-height: 150px;
-    width: auto;
-    height: auto;
-}
-
-.fas {
-    color: black;
-    max-width: 150px;
-    max-height: 150px;
 }
 
 /** fim formatação tela inicial **/
@@ -276,7 +255,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 40px;
-    background-color: #d1cdc7;
+    background-color: #d1cdc78a;
     background: cover;
 }
 
@@ -338,7 +317,7 @@
     position: relative;
     width: 140px;
     height: 120px;
-    background: #d1cdc7;
+    background: #e7e3de;
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
     box-shadow: 0 10px 0 rgba(0, 0, 0, 0.1), inset 0 -8px 0 #fff;
@@ -356,7 +335,7 @@
     height: 50px;
     background: transparent;
     border-top-right-radius: 50px;
-    box-shadow: 9px -12px 0 6.3px #d1cdc7;
+    box-shadow: 9px -12px 0 6.3px #e7e3de;
 }
 
 .icon::after {
@@ -368,7 +347,7 @@
     height: 50px;
     background: transparent;
     border-top-left-radius: 50px;
-    box-shadow: -9px -12px 0 6.3px #d1cdc7;
+    box-shadow: -9px -12px 0 6.3px #e7e3de;
 }
 
 .icon img {
@@ -398,10 +377,27 @@
     line-height: 1.5em;
 }
 
-hr {
-    margin: 0;
+.redeSocial{
+    margin-left: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
 }
 
+.redeSocial:hover{
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+}
+
+.redeSocial{
+    margin-left: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.redeSocial:hover{
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+}
 /*all-footer*/
 
 .container-fluid.ft {

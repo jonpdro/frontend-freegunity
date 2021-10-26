@@ -16,7 +16,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
-  user: User
+  user: User = new User()
+  foto = environment.foto
+  nome = environment.nome
   idUser = environment.id
 
   postagem: Postagem = new Postagem()
@@ -89,4 +91,5 @@ export class FeedComponent implements OnInit {
       this.getAllPostagens()
     })
   }
+
 }

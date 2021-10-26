@@ -35,18 +35,6 @@ export class UserEditComponent implements OnInit {
     this.findByIdUser(this.idUser)
   }
 
-  icon() {
-    let pic: string = 'assets/img/user-default.jpg'
-
-    if (this.user.foto == '') {
-      environment.foto = pic
-    } else {
-      environment.foto = this.user.foto
-    }
-
-    return environment.foto
-  }
-
   findByIdUser(id: number) {
     this.authService.getByIdUser(id).subscribe((resp: User) => {
       this.user = resp

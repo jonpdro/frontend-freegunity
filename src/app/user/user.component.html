@@ -2,19 +2,23 @@
     <div class="row d-flex justify-content-center pt-5">
         <div class="col-md-7">
             <div class="card p-3 py-4">
-                <div class="text-center"> <img src="{{ icon() }}" width="100" class="rounded-circle">
+                <div class="text-center"> <img src="{{ user.foto }}" width="120px" height="120px"
+                        class="rounded-circle">
                 </div>
                 <div class="text-center mt-3">
-                    <span *ngIf='authService.adm()' class="bg-adm p-1 px-4 rounded text-white">ADM</span>
-                    <h5 class="mt-3 mb-0">{{ user.nome }}</h5> <span class="fs-11">@{{ user.username }}</span><br>
-                    <div *ngIf='authService.visitante()' class="">
-                        <p class="fonts">
+                    <span *ngIf='user.admin == adm' class="bg-adm p-1 px-4 rounded text-white">ADM</span>
+                    <h5 class="mt-3 mb-0">{{ user.nome }}</h5> <span class="fs-11 text-secondary">@{{ user.username
+                        }}</span><br>
+                    <div class="">
+                        <p class="fonts text-muted font-italic">
                             {{ user.email }}
                         </p>
+                        <p>
+                            {{ user.sobre }}
+                        </p>
                     </div>
-                    <div class="buttons mt-3">
-                        <button *ngIf='authService.outroPerfil()'  [routerLink]="['/user-edit', editUser]"
-                            class="btn btn-outline mr-1">Editar
+                    <div *ngIf='user.id == editUser' class="buttons mt-3">
+                        <button [routerLink]="['/user-edit', editUser]" class="btn btn-outline mr-1">Editar
                             Perfil</button>
                     </div>
                 </div>

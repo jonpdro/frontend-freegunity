@@ -15,6 +15,7 @@ export class TemaComponent implements OnInit {
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  id = environment.id
 
   constructor(
     private router: Router,

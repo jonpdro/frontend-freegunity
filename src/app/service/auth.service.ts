@@ -12,9 +12,6 @@ import { UserLogin } from '../model/UserLogin';
 })
 export class AuthService {
 
-  user: User
-  userLogin: UserLogin
-
   // Injeção de módulos e services
   constructor(
     private http: HttpClient,
@@ -54,21 +51,12 @@ export class AuthService {
     return ok
   }
 
-  // Permissões de Administrador
+  // Permissão de admin no menu
   adm() {
-    let ok: boolean = false
+    let ok: boolean = true
 
-    if (environment.admin == 'adm') {
-      ok = true
-    }
-    return ok
-  }
-
-  outroPerfil() {
-    let ok: boolean = false
-
-    if (environment.username != 'jotape') {
-      ok = true
+    if (environment.admin != 'adm') {
+      ok = false
     }
 
     return ok
@@ -85,11 +73,12 @@ export class AuthService {
     return ok
   }
 
+  // Privar o visitante das rotas
   visitanteRota() {
     let rota: string = '/feed'
 
     if (environment.id == 4) {
-      if(this.router.url != rota) {
+      if (this.router.url != rota) {
         this.alert.showAlertWarning('Você precisa fazer login ou se cadastrar para acessar essa rota!')
         this.router.navigate(['/feed'])
       }

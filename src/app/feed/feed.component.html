@@ -2,16 +2,17 @@
     <div class="row">
         <!--Card perfil do usuário-->
         <div class="cardUser col-sm-3 ml-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem">
                 <div class="card-body">
                     <!--Nome do Usuário Ts-->
                     <div class="text-center">
                         <a [routerLink]="['/user', idUser]">
-                            <img src="{{ user.foto }}" width="100" class="rounded-circle mt-3" title="Perfil">
+                            <img src="{{ user.foto }}" width="120px" height="120px" class="rounded-circle mt-3"
+                                title="Perfil">
                             <h5 class="card-title text-secondary">{{ user.nome }}</h5>
                         </a>
                         <span *ngIf='authService.visitante()' class="fs-11 text-center text-muted">@{{ user.username
-                            }}</span><br>
+                            }}</span><br *ngIf='authService.visitante()'>
                         <p class="sobreMim p-4 text-justify">
                             <!-- {{ user.sobre }} -->
                             {{ user.sobre }}
@@ -28,9 +29,9 @@
                     <!--IMG DO USUÁRIO TS-->
                     <a [routerLink]="['/user', idUser]">
                         <img src="{{ user.foto }}" class="imgUser rounded-circle">
+                        <!--NOME DO USUÁRIO TS-->
+                        <strong class="usuario text-secondary">{{ user.nome }}</strong>
                     </a>
-                    <!--NOME DO USUÁRIO TS-->
-                    <strong class="usuario text-secondary">{{ user.nome }}</strong>
                 </div>
                 <div class="formPost">
                     <textarea [(ngModel)]='postagem.texto' name="textarea"

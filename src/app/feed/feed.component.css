@@ -37,6 +37,11 @@ a {
     margin-left: 720px;
 }
 
+.card {
+    border-radius: 10px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+}
+
 .card-link {
     color: black;
     margin-left: 70px;
@@ -63,10 +68,9 @@ div.newPost {
 }
 
 .imgUser {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: #333;
 }
 
 .cardUser {
@@ -188,7 +192,7 @@ div.posts {
 }
 
 .horaPostada {
-    color: #D1D1D1;
+    color: #a5a5a5;
     font-size: 12px;
     margin-left: 10px;
 }
@@ -196,8 +200,6 @@ div.posts {
 .postagemGhost {
     width: 100%;
     margin: 20px 0;
-    color: #727272;
-    
 }
 
 .actionBtnPost {
@@ -269,147 +271,116 @@ hr {
 .imgPost[src=""] {
     display: none;
 }
-.postagemGhost[src=""]{
+
+.postagemGhost[src=""] {
     padding: 30px;
     margin-bottom: 30px;
 }
 
 /*responsividade feed*/
 
-@media screen and (max-width:480){
-    .container-fluid
-    {
+@media screen and (max-width:480) {
+    .container-fluid {
         background: 100%;
-        
-
     }
-    .newPost,.cardUser
-    {
-        margin-left:5rem;
+    .newPost, .cardUser {
+        margin-left: 5rem;
         margin-right: 5rem;
         align-items: center;
     }
-    .iconsAndButton
-    {
+    .iconsAndButton {
         padding: 30px;
         margin: 0;
         width: 100%;
     }
-    .actionBtnPost
-    {
+    .actionBtnPost {
         width: 100%;
     }
-    .cardUser
-    {
+    .cardUser {
         display: none;
     }
-    
-    
-   
 }
 
 @media screen and (min-width:481px) and (max-width:768px) {
-    .container-fluid
-    {
+    .container-fluid {
         background: 100%;
     }
-    .postagemGhost
-    {
+    .postagemGhost {
         padding: 20px;
     }
-    .imgPost
-    {
+    .imgPost {
         display: none;
     }
-    .newPost,.cardUser
-    {
-        display: flex;
-        
+    .newPost, .iconsAndButton {
+        width: 100%;
     }
-    .cardUser
-    {
-       
-       margin-left:100px;
+    .cardUser {
+        display: none;
     }
-    .actionBtnPost
-    {
+    .actionBtnPost {
         padding: 0;
         margin: 0;
         width: 100%;
     }
-
 }
 
 @media screen and (min-width: 769px) and (max-width:992px) {
-    .container-fluid, .newPost,.cardUser
-    {
+    .container-fluid, .newPost, .cardUser {
         width: 100%;
         background: 100%;
         align-items: flex-end;
-        
     }
-    .postagemGhost
-    {
+    .postagemGhost {
         padding: 30px;
     }
-    .imgPost
-    {
+    .imgPost {
         display: none;
     }
-    .newPost,.cardUser
-    {
-        margin-left:5px;
+    .newPost, .cardUser {
+        width: 100%;
+        margin-left: 5px;
         margin-right: 5px;
         align-items: center;
     }
-    .cardUser
-    {
+    .cardUser {
+        width: 100%;
         margin-right: 7rem;
     }
-    .actionBtnPost
-    {
+    .actionBtnPost {
         padding: 0;
         margin: 0;
         width: 100%;
     }
-   
 }
 
 @media screen and (min-width:993px) {
-    .postagemGhost
-    {
+    .postagemGhost {
         padding: 30px;
     }
-    .imgPost
-    {
+    .imgPost {
         display: none;
     }
-    .iconsAndButton
-    {
+    .iconsAndButton {
         padding: 0;
         margin: 0;
         width: 100%;
     }
-    .cardUser
-    {
+    .cardUser {
         margin-right: 70px;
     }
-   
-
 }
 
+/*
 @media screen and (min-width:1200) and (max-width:1280px) {
   
    
     
 }
 
-@media screen and (min-width:1201) and (max-width:1600px) {
-    
-    
-}
+@media screen and (min-width:1201) and (max-width:1600px) {}
 
 @media screen and (min-width:1601px) and (max-width:1900px) {
   
     
 }
+*/
