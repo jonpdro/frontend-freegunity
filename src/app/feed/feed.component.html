@@ -43,7 +43,7 @@
                             <input [(ngModel)]='postagem.imagem' type="text" class="form-control ml-1 p-0 w-auto"
                                 placeholder=" URL da imagem">
                         </div>
-                        <label class="text-secondary ml-3">Tema:</label>
+                        <label class="text-secondary ml-0">Tema:</label>
                         <select name="tema" class="form-control ml-1 form-tema" [(ngModel)]='idTema'
                             (change)='findByIdTema()'>
                             <option *ngFor='let item of listaTemas' value="{{ item.id }}">

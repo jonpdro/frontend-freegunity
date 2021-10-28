@@ -37,11 +37,6 @@ a {
     margin-left: 720px;
 }
 
-.card {
-    border-radius: 10px;
-    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
-}
-
 .card-link {
     color: black;
     margin-left: 70px;
@@ -68,9 +63,10 @@ div.newPost {
 }
 
 .imgUser {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
+    background: #333;
 }
 
 .cardUser {
@@ -192,7 +188,7 @@ div.posts {
 }
 
 .horaPostada {
-    color: #a5a5a5;
+    color: #D1D1D1;
     font-size: 12px;
     margin-left: 10px;
 }
@@ -200,6 +196,7 @@ div.posts {
 .postagemGhost {
     width: 100%;
     margin: 20px 0;
+    color: #727272;
 }
 
 .actionBtnPost {
@@ -280,43 +277,67 @@ hr {
 /*responsividade feed*/
 
 @media screen and (max-width:480) {
-    .container-fluid {
-        background: 100%;
-    }
-    .newPost, .cardUser {
-        margin-left: 5rem;
-        margin-right: 5rem;
-        align-items: center;
-    }
-    .iconsAndButton {
-        padding: 30px;
-        margin: 0;
+    .container-fluid, .newPost, .cardUser {
         width: 100%;
-    }
-    .actionBtnPost {
-        width: 100%;
-    }
-    .cardUser {
-        display: none;
-    }
-    
-}
-
-@media screen and (min-width:481px) and (max-width:768px) {
-    .container-fluid {
         background: 100%;
+      
     }
     .postagemGhost {
-        padding: 20px;
+        padding: 30px;
     }
     .imgPost {
         display: none;
     }
-    .newPost, .iconsAndButton {
+    .newPost,.cardUser
+    {
+        width: 100%;
+        margin-left:5px;
+        margin-right: 5px;
+    }
+    .row
+    {
+        justify-content: center;
+        align-items: center;
+    }
+    .cardUser
+    {
+        width: 100%;
+        margin-right: 7rem;
+    }
+    .actionBtnPost {
+        padding: 0;
+        margin: 0;
         width: 100%;
     }
-    .cardUser {
+}
+
+@media screen and (min-width:481px) and (max-width:768px) {
+    .container-fluid, .newPost, .cardUser {
+        width: 100%;
+        background: 100%;
+      
+    }
+    .postagemGhost {
+        padding: 30px;
+    }
+    .imgPost {
         display: none;
+    }
+    .newPost,.cardUser
+    {
+        width: 100%;
+        margin-left:5px;
+        margin-right: 5px;
+    }
+    .row
+    {
+        justify-content: center;
+        align-items: center;
+    }
+    .cardUser
+    {
+        width: 100%;
+        margin-right: 7rem;
     }
     .actionBtnPost {
         padding: 0;
@@ -329,7 +350,6 @@ hr {
     .container-fluid, .newPost, .cardUser {
         width: 100%;
         background: 100%;
-        align-items: flex-end;
     }
     .postagemGhost {
         padding: 30px;
@@ -337,13 +357,18 @@ hr {
     .imgPost {
         display: none;
     }
-    .newPost, .cardUser {
+    .newPost,.cardUser
+    {
         width: 100%;
-        margin-left: 5px;
+        margin-left:5px;
         margin-right: 5px;
-        align-items: center;
     }
-    .cardUser {
+    .row
+    {
+        justify-content: center;
+    }
+    .cardUser
+    {
         width: 100%;
         margin-right: 7rem;
     }
@@ -370,7 +395,6 @@ hr {
         margin-right: 70px;
     }
 }
-
 /*
 @media screen and (min-width:1200) and (max-width:1280px) {
   
